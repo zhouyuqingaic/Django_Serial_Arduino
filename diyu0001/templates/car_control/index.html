@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Control</title>
+    <script>
+    function startTime(){
+        var today=new Date()
+
+        var year=2018
+        var month=4
+        var date=30
+
+        var h=today.getHours()
+        var m=today.getMinutes()
+        var s=today.getSeconds()
+        // add a zero in front of numbers<10
+        m=checkTime(m)
+        s=checkTime(s)
+        document.getElementById('smoke').innerHTML=
+        "有毒气体及烟雾:False (刷新时间:"+year+"/"+month+"/"+date+" "+h+":"+m+":"+s+")"
+        t=setTimeout('startTime()',4000)
+    }
+
+    function checkTime(i)
+    {
+        if (i<10)
+        {i="0" + i}
+        return i
+    }
+
+    function action_S(){
+         var xmlhttp=new XMLHttpRequest();
+         xmlhttp.onreadystatechange=function(){
+            if(xmlhttp.readyState==4 && xmlhttp.status==200){
+                document.getElementById('action').innerHTML=xmlhttp.responseText;
+            }
+         };
+         xmlhttp.open('GET','/car_control/action/S',true);
+         xmlhttp.send()
+    }
+
+
+    function mDown_W(obj)
+    {
+    obj.style.backgroundColor="#1ec5e5";
+        action_W();
+    }
+
+    function mUp_W(obj)
+    {
+    obj.style.backgroundColor="green";
+        action_S();
+    }
+
+    function action_W(){
+         var xmlhttp=new XMLHttpRequest();
+         xmlhttp.onreadystatechange=function(){
+            if(xmlhttp.readyState==4 && xmlhttp.status==200){
+                document.getElementById('action').innerHTML=xmlhttp.responseText;
+            }
+         };
+         xmlhttp.open('GET','/car_control/action/W',true);
+         xmlhttp.send()
+    }
+
+
+    function mDown_A(obj)
+    {
+    obj.style.backgroundColor="#1ec5e5";
+        action_A();
+    }
+
+    function mUp_A(obj)
+    {
+    obj.style.backgroundColor="green";
+        action_S();
+    }
+
+    function action_A(){
+         var xmlhttp=new XMLHttpRequest();
+         xmlhttp.onreadystatechange=function(){
+            if(xmlhttp.readyState==4 && xmlhttp.status==200){
+                document.getElementById('action').innerHTML=xmlhttp.responseText;
+            }
+         };
+         xmlhttp.open('GET','/car_control/action/A',true);
+         xmlhttp.send()
+    }
+
+
+    function mDown_D(obj)
+    {
+    obj.style.backgroundColor="#1ec5e5";
+        action_D();
+    }
+
+    function mUp_D(obj)
+    {
+    obj.style.backgroundColor="green";
+        action_S();
+    }
+
+    function action_D(){
+         var xmlhttp=new XMLHttpRequest();
+         xmlhttp.onreadystatechange=function(){
+            if(xmlhttp.readyState==4 && xmlhttp.status==200){
+                document.getElementById('action').innerHTML=xmlhttp.responseText;
+            }
+         };
+         xmlhttp.open('GET','/car_control/action/D',true);
+         xmlhttp.send()
+    }
+
+
+    function mDown_Z(obj)
+    {
+    obj.style.backgroundColor="#1ec5e5";
+        action_Z();
+    }
+
+    function mUp_Z(obj)
+    {
+    obj.style.backgroundColor="green";
+        action_S()
+    }
+
+    function action_Z(){
+         var xmlhttp=new XMLHttpRequest();
+         xmlhttp.onreadystatechange=function(){
+            if(xmlhttp.readyState==4 && xmlhttp.status==200){
+                document.getElementById('action').innerHTML=xmlhttp.responseText;
+            }
+         };
+         xmlhttp.open('GET','/car_control/action/Z',true);
+         xmlhttp.send()
+    }
+
+    function mDown_U(obj)
+    {
+    obj.style.backgroundColor="#1ec5e5";
+        action_U();
+    }
+
+    function mUp_U(obj)
+    {
+    obj.style.backgroundColor="green";
+    }
+
+    function action_U(){
+         var xmlhttp=new XMLHttpRequest();
+         xmlhttp.onreadystatechange=function(){
+            if(xmlhttp.readyState==4 && xmlhttp.status==200){
+                document.getElementById('action').innerHTML=xmlhttp.responseText;
+            }
+         };
+         xmlhttp.open('GET','/car_control/action/U',true);
+         xmlhttp.send()
+    }
+
+    function mDown_P(obj)
+    {
+    obj.style.backgroundColor="#1ec5e5";
+        action_U();
+    }
+
+    function mUp_P(obj)
+    {
+    obj.style.backgroundColor="green";
+    }
+
+    function action_P(){
+         var xmlhttp=new XMLHttpRequest();
+         xmlhttp.onreadystatechange=function(){
+            if(xmlhttp.readyState==4 && xmlhttp.status==200){
+                document.getElementById('action').innerHTML=xmlhttp.responseText;
+            }
+         };
+         xmlhttp.open('GET','/car_control/action/P',true);
+         xmlhttp.send()
+    }
+
+
+
+    </script>
+</head>
+<body onload="startTime()">
+    <div id="action"></div>
+    <h1>Designed By DiYu In Earth</h1>
+    <h1 id="smoke"></h1>
+    <table align="center">
+        <tr>
+            <td>
+            </td>
+            <td>
+                <div val='W' onmousedown="mDown_W(this)"
+                     onmouseup="mUp_W(this)" style="background-color:green;color:#ffffff;width:90px;height:20px;padding:40px;font-size:12px;">
+                     W
+                </div>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div val='A' onmousedown="mDown_A(this)"
+                     onmouseup="mUp_A(this)" style="background-color:green;color:#ffffff;width:90px;height:20px;padding:40px;font-size:12px;">
+                     A
+                </div>
+            </td>
+            <td>
+            </td>
+            <td>
+                <div val='D' onmousedown="mDown_D(this)"
+                     onmouseup="mUp_D(this)" style="background-color:green;color:#ffffff;width:90px;height:20px;padding:40px;font-size:12px;">
+                    D
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <div val='Z' onmousedown="mDown_Z(this)"
+                     onmouseup="mUp_Z(this)" style="background-color:green;color:#ffffff;width:90px;height:20px;padding:40px;font-size:12px;">
+                     Z
+                </div>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                <div val='U' onmousedown="mDown_U(this)"
+                     onmouseup="mUp_U(this)" style="background-color:green;color:#ffffff;width:90px;height:20px;padding:40px;font-size:12px;">
+                     U
+                </div>
+            </td>
+            <td>
+                <div val='P' onmousedown="mDown_P(this)"
+                     onmouseup="mUp_P(this)" style="background-color:green;color:#ffffff;width:90px;height:20px;padding:40px;font-size:12px;">
+                     P
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
